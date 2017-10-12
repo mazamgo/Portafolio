@@ -125,7 +125,7 @@ namespace Model
         }
 
         //Para HttpPostedFileBase: Se agrego Proyecto Model la referencia desde Assembly Sysmtem.Web
-        public ResponseModel Guardar(HttpPostedFileBase Foto) 
+        public ResponseModel Guardar(HttpPostedFileBase Foto, String Password ) 
         {
             ResponseModel rm = new ResponseModel();
 
@@ -136,15 +136,27 @@ namespace Model
                     ctx.Configuration.ValidateOnSaveEnabled = false;
                     var usr = ctx.Entry(this);
                     usr.State = EntityState.Modified;
+
                     if (this.Foto != null)
                     {
                         string archivo = DateTime.Now.ToString("yyyyMMddHHmmss") + Path.GetExtension(Foto.FileName);
                         Foto.SaveAs(HttpContext.Current.Server.MapPath("~/Uploads" + archivo));
                         this.Foto = archivo;
                     }
-                    else usr.Property(x => x.Foto).IsModified = false;
+                    else
+                    {
+                        usr.Property(x => x.Foto).IsModified = false;
+                    }
 
-                    if (this.Password == null) usr.Property(x => x.Password).IsModified = false;
+                    if (this.Password == null)
+                    {
+                        usr.Property(x => x.Password).IsModified = false;
+                    }
+                    else
+                    {
+                        this.Password = Helper.HashHelper.MD5(Password);
+                    }
+
                     ctx.SaveChanges();
                     rm.SetResponse(true);
                 }

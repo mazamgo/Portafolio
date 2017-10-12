@@ -22,7 +22,7 @@ namespace proyecto.Areas.Admin.Controllers
             return View(usuario.Obtener(SessionHelper.GetUser()));
         }
 
-        public JsonResult Guardar(Usuario usuario, HttpPostedFileBase Foto) 
+        public JsonResult Guardar(Usuario usuario, HttpPostedFileBase Foto, String Password) 
         {
             var rm = new ResponseModel();
 
@@ -30,7 +30,7 @@ namespace proyecto.Areas.Admin.Controllers
 
             if (ModelState.IsValid) 
             {
-                rm = usuario.Guardar(Foto);
+                rm = usuario.Guardar(Foto,Password);
                 rm.SetResponse(true);
             }
 

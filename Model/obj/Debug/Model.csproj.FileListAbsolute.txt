@@ -38,3 +38,14 @@ E:\Proyecto\proyecto\Model\bin\Debug\EntityFramework.SqlServer.xml
 E:\Proyecto\proyecto\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
 E:\Proyecto\proyecto\Model\obj\Debug\Model.dll
 E:\Proyecto\proyecto\Model\obj\Debug\Model.pdb
+C:\Users\pc\Documents\Visual Studio 2015\Projects\proyecto\Model\bin\Debug\Model.dll
+C:\Users\pc\Documents\Visual Studio 2015\Projects\proyecto\Model\bin\Debug\Model.pdb
+C:\Users\pc\Documents\Visual Studio 2015\Projects\proyecto\Model\bin\Debug\EntityFramework.dll
+C:\Users\pc\Documents\Visual Studio 2015\Projects\proyecto\Model\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\pc\Documents\Visual Studio 2015\Projects\proyecto\Model\bin\Debug\Helper.dll
+C:\Users\pc\Documents\Visual Studio 2015\Projects\proyecto\Model\bin\Debug\Helper.pdb
+C:\Users\pc\Documents\Visual Studio 2015\Projects\proyecto\Model\bin\Debug\EntityFramework.xml
+C:\Users\pc\Documents\Visual Studio 2015\Projects\proyecto\Model\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\pc\Documents\Visual Studio 2015\Projects\proyecto\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
+C:\Users\pc\Documents\Visual Studio 2015\Projects\proyecto\Model\obj\Debug\Model.dll
+C:\Users\pc\Documents\Visual Studio 2015\Projects\proyecto\Model\obj\Debug\Model.pdb

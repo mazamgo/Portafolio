@@ -44,6 +44,17 @@
                         @Html.LabelFor(x => x.Telefono)
                         @Html.TextBoxFor(x => x.Telefono, new { @class = "form-control", placeholder = "Ingrese su telefono" })
                     </div>
+
+                    <div class="form-group">
+                          <label>Password</label>                     
+                        <input type="password" name="Password" class="form-control" placeholder="Cambie contraseña" />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Confirme Password</label>
+                        <input type="password" name="PasswordConfirme" class="form-control" placeholder="Confirme contraseña" />
+                    </div>
+
                     <div class="form-group">
                         <label>Foto de perfil</label>
                         <input type="file" name="Foto" />
