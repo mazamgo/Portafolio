@@ -1,12 +1,12 @@
 ﻿
 @{
-    
+    Int32 tipo = ViewBag.tipo;
 }
 
 <div id="experiencia" class="page">
 
     <h1 class="page-header remove-margin">
-        <a class="btn btn-primary pull-right" href="#">Agregar</a>
+        <a class="btn btn-primary pull-right" href="~/Admin/Experiencia/Crud?tipo=@tipo">Agregar</a>
         @ViewBag.Title
     </h1>
 

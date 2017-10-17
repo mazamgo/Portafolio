@@ -125,3 +125,4 @@ C:\Users\pc\Documents\Visual Studio 2015\Projects\proyecto\proyecto\bin\System.W
 C:\Users\pc\Documents\Visual Studio 2015\Projects\proyecto\proyecto\obj\Debug\proyecto.csprojResolveAssemblyReference.cache
 C:\Users\pc\Documents\Visual Studio 2015\Projects\proyecto\proyecto\obj\Debug\proyecto.dll
 C:\Users\pc\Documents\Visual Studio 2015\Projects\proyecto\proyecto\obj\Debug\proyecto.pdb
+C:\Users\pc\Documents\Visual Studio 2015\Projects\proyecto\proyecto\bin\VisualStudioGitIgnore.dll
