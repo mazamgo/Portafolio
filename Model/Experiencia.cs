@@ -1,10 +1,11 @@
 namespace Model
-{
-    using System;
-    using System.Collections.Generic;
+{    
+    using System;   
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
+    using System.Data.Entity;
+  
+    using System.Linq;
 
     [Table("Experiencia")]
     public partial class Experiencia
@@ -34,5 +35,114 @@ namespace Model
         public string Descripcion { get; set; }
 
         public virtual Usuario Usuario { get; set; }
+
+        //Metodo Guardar. //Experiencia model, int id
+        public ResponseModel Guardar()
+        {
+            var rm = new ResponseModel();
+
+            try
+            {
+                using (var ctx = new ProyectoContext())
+                {
+                    if (this.id > 0)
+                    {
+                        ctx.Entry(this).State = EntityState.Modified;
+                    }
+                    else
+                    { ctx.Entry(this).State = EntityState.Added; }
+
+                    ctx.SaveChanges();
+                    rm.SetResponse(true);
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            return (rm);
+        }
+
+        public ResponseModel Eliminar(int id)
+        {
+            var rm = new ResponseModel();
+
+            try
+            {
+                using (var ctx = new ProyectoContext())
+                {
+                    if (id > 0)
+                    {
+                        this.id = id;
+                        ctx.Entry(this).State = EntityState.Deleted;
+                        ctx.SaveChanges();
+                        rm.SetResponse(true);
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+
+            return (rm);
+        }
+
+        public Experiencia Obtener(int id)
+        {
+            var experiencia = new Experiencia();
+
+            try
+            {
+                using (var ctx = new ProyectoContext())
+                {
+                    experiencia = ctx.Experiencia.Where(x => x.id == id).SingleOrDefault();
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+            return experiencia;
+        }
+
+        public AnexGRIDResponde Listar (AnexGRID grid, int tipo, int usuario_id)
+        {
+            try
+            {
+               
+                using (var ctx = new ProyectoContext())
+                {
+                    ctx.Configuration.LazyLoadingEnabled = false;
+                    grid.Inicializar();
+
+                    var query = ctx.Experiencia.Where(x => x.Tipo == tipo).Where(x => x.Usuario_id == usuario_id);
+
+                    if (grid.columna == "id") query = grid.columna_orden == "DESC" ? query.OrderByDescending(x => x.id) : query.OrderBy(x => x.id);
+                    if (grid.columna == "Nombre") query = grid.columna_orden == "DESC" ? query.OrderByDescending(x => x.Nombre) : query.OrderBy(x => x.Nombre);
+                    if (grid.columna == "Titulo") query = grid.columna_orden == "DESC" ? query.OrderByDescending(x => x.Titulo) : query.OrderBy(x => x.Titulo);
+                    if (grid.columna == "Desde") query = grid.columna_orden == "DESC" ? query.OrderByDescending(x => x.Desde) : query.OrderBy(x => x.Desde);
+                    if (grid.columna == "Hasta") query = grid.columna_orden == "Hasta" ? query.OrderByDescending(x => x.Hasta) : query.OrderBy(x => x.Hasta);
+
+                    var experiencia = query.Skip(grid.pagina).Take(grid.limite).ToList();
+                    var total = query.Count();
+
+                    grid.SetData(experiencia, total);
+                }
+            }
+            catch(Exception e)
+            {
+                throw e;
+            }
+
+            return grid.responde();
+        }
+
     }
+
+
+    
+
 }
