@@ -112,6 +112,7 @@ C:\Users\pc\Documents\Visual Studio 2015\Projects\proyecto\proyecto\bin\System.W
 C:\Users\pc\Documents\Visual Studio 2015\Projects\proyecto\proyecto\bin\System.Web.Webpages.Deployment.dll
 C:\Users\pc\Documents\Visual Studio 2015\Projects\proyecto\proyecto\bin\System.Web.Webpages.dll
 C:\Users\pc\Documents\Visual Studio 2015\Projects\proyecto\proyecto\bin\System.Web.Webpages.Razor.dll
+C:\Users\pc\Documents\Visual Studio 2015\Projects\proyecto\proyecto\bin\VisualStudioGitIgnore.dll
 C:\Users\pc\Documents\Visual Studio 2015\Projects\proyecto\proyecto\bin\Helper.pdb
 C:\Users\pc\Documents\Visual Studio 2015\Projects\proyecto\proyecto\bin\Model.pdb
 C:\Users\pc\Documents\Visual Studio 2015\Projects\proyecto\proyecto\bin\EntityFramework.xml
@@ -125,4 +126,3 @@ C:\Users\pc\Documents\Visual Studio 2015\Projects\proyecto\proyecto\bin\System.W
 C:\Users\pc\Documents\Visual Studio 2015\Projects\proyecto\proyecto\obj\Debug\proyecto.csprojResolveAssemblyReference.cache
 C:\Users\pc\Documents\Visual Studio 2015\Projects\proyecto\proyecto\obj\Debug\proyecto.dll
 C:\Users\pc\Documents\Visual Studio 2015\Projects\proyecto\proyecto\obj\Debug\proyecto.pdb
-C:\Users\pc\Documents\Visual Studio 2015\Projects\proyecto\proyecto\bin\VisualStudioGitIgnore.dll

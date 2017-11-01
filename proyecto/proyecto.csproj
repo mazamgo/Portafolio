@@ -158,6 +158,7 @@
     <Content Include="Areas\Admin\Views\_Viewstart.cshtml" />
     <Content Include="git.ignore" />
     <Content Include="Areas\Admin\Views\Experiencia\Crud.cshtml" />
+    <Content Include="Areas\Admin\Views\Habilidades\Crud.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
