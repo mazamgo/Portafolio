@@ -1,59 +1,72 @@
 ﻿
 @{
-    ViewBag.Title = "Testimonios";
+    ViewBag.Title = "Testimonio";
 }
 
-<div id="testimonios" class="page">
+<div id="testimonio" class="page">
 
-    <h1 class="page-header remove-margin">
-        Testimonios
-    </h1>
+   <div id="list"></div>
 
-    <table class="table table-striped table-bordered">
-        <thead>
-            <tr>
-                <th>Nombre</th>
-                <th>Estado</th>
-                <th>IP</th>
-                <th>Fecha</th>
-                <th style="width:400px;">Comentario</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>
-                    <a href="#">Juan Paredes</a>
-                </td>
-                <td>
-                    <b class="text-warning">Pendiente</b>
-                </td>
-                <td>192.168.1.54</td>
-                <td>2015-02-02</td>
-                <td>Excelente profesional, definitivamente es una gran persona y muy empeñoso en su trabajo.</td>
-            </tr>
-            <tr>
-                <td>
-                    <a href="#">Jose Andrade</a>
-                </td>
-                <td>
-                    <b class="text-success">Aprobado</b>
-                </td>
-                <td>192.168.1.5</td>
-                <td>2015-02-02</td>
-                <td>Eduardo es una persona muy profesional, se nota que sabe del tema y estoy muy contento con los cursos que ha realizado.</td>
-            </tr>
-            <tr>
-                <td>
-                    <a href="#">Bravo Maloi</a>
-                </td>
-                <td>
-                    <b class="text-danger">Rechazado</b>
-                </td>
-                <td>192.168.1.32</td>
-                <td>2015-02-02</td>
-                <td>Curso de $&/$&#!$!"#$%#&@@ ....</td>
-            </tr>
-        </tbody>
-    </table>
 </div>
 
+<script>
+    $(document).ready(function () {
+
+        var aGrid =  $("#list").anexGrid({
+
+            columnas: [
+                { leyenda: 'Nombre', columna: 'Nombre', ordenable: true },
+                { leyenda: 'Estado', columna: 'Estado', ordenable: true },
+                { leyenda: 'IP', columna: 'IP', ordenable: true, style: 'width:10px' },
+                { leyenda: 'Fecha', columna: 'Fecha', ordenable: true, style: 'width:100px' },
+                { leyenda: 'Comentario', style: 'width:350px' }
+            ],
+            modelo: [
+                {
+                    propiedad: 'Nombre', formato: function (tr, obj, valor) {
+                        return anexGrid_link({
+                            href: '@Url.Content("~/Admin/Testimonios/Crud/")' + obj.id,
+                            contenido: valor
+                        });
+                    }
+                },
+                { propiedad: 'Estado' },
+                { propiedad: 'IP' },
+                { propiedad: 'Fecha' },
+                { propiedad: 'Comentario' },
+                {
+                    formato: function (tr, obj, valor) {
+                        return anexGrid_link({
+                            href: '@Url.Content("~/Admin/Testimonios/Eliminar/")' + obj.id,
+                            contenido: '<i class="fa fa-trash"></i>',
+                                class: 'btn btn-danger btn-xs btn-block btn-eliminar'
+                        });
+                    }
+                }
+            ],
+            url: '@Url.Content("~/Admin/Testimonios/Listar")',
+            paginable: true,
+            limite: [20, 60, 100],
+            columna: 'id',
+            columna_orden: 'DESC'
+        });
+
+        aGrid.tabla().on('click', '.btn-eliminar', function () {
+
+            var r = confirm("Esta Seguro de Eliminar el registro!");
+
+            if (r == true)
+            {
+                $.post($(this).attr('href'), function (r) {
+                    if (r.response)
+                        aGrid.refrescar();
+                }, 'json')
+            }
+
+            return false;
+
+        });
+
+    });
+
+</script>

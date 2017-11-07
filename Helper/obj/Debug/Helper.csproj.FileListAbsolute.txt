@@ -10,6 +10,5 @@ E:\Proyecto\proyecto\Helper\obj\Debug\Helper.dll
 E:\Proyecto\proyecto\Helper\obj\Debug\Helper.pdb
 C:\Users\pc\Documents\Visual Studio 2015\Projects\proyecto\Helper\bin\Debug\Helper.dll
 C:\Users\pc\Documents\Visual Studio 2015\Projects\proyecto\Helper\bin\Debug\Helper.pdb
-C:\Users\pc\Documents\Visual Studio 2015\Projects\proyecto\Helper\obj\Debug\Helper.csprojResolveAssemblyReference.cache
 C:\Users\pc\Documents\Visual Studio 2015\Projects\proyecto\Helper\obj\Debug\Helper.dll
 C:\Users\pc\Documents\Visual Studio 2015\Projects\proyecto\Helper\obj\Debug\Helper.pdb
