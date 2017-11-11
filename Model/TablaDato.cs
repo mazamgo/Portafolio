@@ -42,11 +42,36 @@ namespace Model
             {
                 using (var ctx = new ProyectoContext()) 
                 { 
-                 datos = ctx.TablaDato.Where(x => x.Relacion == relacion).ToList();
+                 datos = ctx.TablaDato
+                        .Where(x => x.Relacion == relacion)                       
+                        .ToList();
                 }
             
             }
             catch (Exception e) 
+            {
+                throw e;
+            }
+
+            return datos;
+        }
+
+        public TablaDato Obtener(string relacion, string valor)
+        {
+            TablaDato datos = new TablaDato();
+
+            try
+            {
+                using (var ctx = new ProyectoContext())
+                {
+                    datos = ctx.TablaDato
+                         .Where(x => x.Relacion == relacion)
+                         .Where(x => x.Valor == valor)
+                         .FirstOrDefault();
+                }
+
+            }
+            catch (Exception e)
             {
                 throw e;
             }

@@ -69,6 +69,9 @@ namespace Model
 
         public virtual ICollection<Testimonio> Testimonio { get; set; }
 
+        [NotMapped]
+        public TablaDato pais { get; set; }
+
         public ResponseModel Acceder(string Email, string Password) 
         {
             var rm = new ResponseModel();
@@ -103,7 +106,7 @@ namespace Model
             return rm;
         }
 
-        public Usuario Obtener(int id) 
+        public Usuario Obtener(int id, bool includes = false) 
         {
             var usuario = new Usuario();
 
@@ -111,8 +114,24 @@ namespace Model
             {
                 using (var ctx = new ProyectoContext()) 
                 {
-                    usuario = ctx.Usuario.Where(x => x.id == id)
+                    if (!includes)
+                    {
+                        usuario = ctx.Usuario.Where(x => x.id == id)
                                          .SingleOrDefault();
+                    }
+                    else
+                    {
+                        usuario = ctx.Usuario
+                                     .Include("Experiencia")
+                                     .Include("Habilidad")
+                                     .Include("Testimonio")
+                                     .Where(x => x.id == id)
+                                     .SingleOrDefault();
+                    }
+
+                    // Trayendo un registro adicional, sin usar Include
+                    usuario.pais = new TablaDato().Obtener("pais", usuario.Pais_id.ToString());
+                    
                 }
             }
             catch (Exception)

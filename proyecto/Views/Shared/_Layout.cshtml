@@ -1,4 +1,10 @@
-﻿<!DOCTYPE html>
+﻿
+@{
+    var usuario_id = proyecto.App_Start.FrontOfficeStartUp.Usuariovisualizando();
+    var usuario = new Usuario().Obtener(usuario_id);
+ }
+
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <title>@ViewBag.Title</title>
@@ -11,7 +17,7 @@
 
     <div id="cv-container">
         
-        @Html.Partial("~/views/shared/_user.cshtml")
+        @Html.Partial("~/views/shared/_user.cshtml",usuario)
         
         <div id="content">
             
