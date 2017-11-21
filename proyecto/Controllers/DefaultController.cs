@@ -1,4 +1,5 @@
 ﻿using Model;
+using proyecto.App_Start;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +10,11 @@ namespace proyecto.Controllers
 {
     public class DefaultController : Controller
     {
+        private Usuario usuario = new Usuario();
+
         public ActionResult Index()
         {
-            return View();
+            return View(usuario.Obtener(FrontOfficeStartUp.Usuariovisualizando(),true));
         }
     }
 }

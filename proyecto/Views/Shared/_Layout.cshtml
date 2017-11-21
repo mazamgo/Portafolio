@@ -21,10 +21,12 @@
         
         <div id="content">
             
-            @Html.Partial("~/views/shared/_MenuAdicional.cshtml")
+            @Html.Partial("~/views/shared/_MenuAdicional.cshtml", usuario)
             
             <div class="content-container container-fluid">
+                
                 @RenderBody()
+
                 <footer id="footer">
                     2015 - Proyecto desarrollado por <a href="http://anexsoft.com">Anexsoft</a>
                 </footer>
