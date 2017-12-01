@@ -13,7 +13,7 @@ namespace proyecto.Controllers
     public class DefaultController : Controller
     {
         private Usuario usuario = new Usuario();
-
+        
         public ActionResult Index()
         {
             return View(usuario.Obtener(FrontOfficeStartUp.Usuariovisualizando(),true));
@@ -69,6 +69,36 @@ namespace proyecto.Controllers
         public ActionResult PDF()
         {
             return View(usuario.Obtener(FrontOfficeStartUp.Usuariovisualizando(),true));
+        }
+
+        public JsonResult Comentar(Testimonio testimonio)
+        {
+            //const string FMT = "yyyy-MM-dd";
+            //System.Web.HttpContext context = System.Web.HttpContext.Current;
+            //string ipAddress = context.Request.ServerVariables["HTTP_X_FORWARDED_FOR"];
+            //var rm = new ResponseModel();
+
+            // if (ModelState.IsValid)
+            //{                
+            //testimonio.Usuario_id = FrontOfficeStartUp.Usuariovisualizando();
+            //testimonio.IP = ipAddress;
+            //testimonio.Fecha = DateTime.Now.ToString(FMT);
+            //testimonio.estado = 2;
+            //rm = testimonio.Guardar();
+            //rm.SetResponse(true);
+            // }
+
+            var rm = new ResponseModel();
+
+            if (ModelState.IsValid)
+            {
+                rm = testimonio.Guardar();
+
+                if (rm.response) rm.message = "Gracias por comentar";
+            }
+
+            return Json(rm);
+
         }
 
     }
