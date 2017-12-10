@@ -130,8 +130,11 @@ namespace Model
                     }
 
                     // Trayendo un registro adicional, sin usar Include
-                    usuario.pais = new TablaDato().Obtener("pais", usuario.Pais_id.ToString());
-                    
+                    if (usuario != null)
+                    {
+                        usuario.pais = new TablaDato().Obtener("pais", usuario.Pais_id.ToString());
+                    }
+                                        
                 }
             }
             catch (Exception)
