@@ -137,6 +137,7 @@
     <Content Include="assets\js\jquery.js" />
     <Content Include="assets\js\jquery.validate.min.js" />
     <Content Include="assets\js\jquery.validate.unobtrusive.min.js" />
+    <Content Include="BaseDatos\Proyecto Backup.sql" />
     <Content Include="Global.asax" />
     <Content Include="Rotativa\wkhtmltopdf.exe" />
     <Content Include="Uploads\yo.jpg" />
